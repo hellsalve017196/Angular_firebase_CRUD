@@ -1,0 +1,32 @@
+<p>Enter here : <input [(ngModel)]="itemVal" type="text"><input type="button" value="send" (click)="onSumbit()"></p>
+
+Fetch from Firebase:
+<div>
+  <table border="1">
+    <tr>
+      <td>
+        Message
+      </td>
+      <td>
+        Decision
+      </td>
+      <td>
+        Delete
+      </td>
+    </tr>
+
+    <tr *ngFor="let item of listOfitems;let index=index">
+      <td (click)="onModifiy(content,input)">
+        <p #content >{{ item.content }}</p>
+        <input style="display: none" #input type="text" value="{{ item.content }}"/>
+      </td>
+      <td>
+        <button (click)="onDelete(item.key)" >Delete</button>
+      </td>
+      <td>
+        <button (click)="onEdit(item.key, input,content)" >Edit</button>
+      </td>
+    </tr>
+
+  </table>
+</div>
